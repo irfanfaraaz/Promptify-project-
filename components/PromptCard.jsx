@@ -83,7 +83,8 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
           <p
             className='font-inter text-sm green_gradient cursor-pointer'
             onClick={handleDelete}
-            if (event.key === "Enter") {
+             onKeyDown={(event) => {
+              if (event.key === "Enter") {
                 {handleDelete}
               }
             }}
