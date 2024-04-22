@@ -35,7 +35,13 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
             <p className="font-inter text-sm text-grey-500">{post?.creator?.email}</p>
           </div>
         </div>
-        <div className='copy_btn' onClick={handleCopy}>
+        <div className='copy_btn' onClick={handleCopy} 
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                {handleCopy}
+              }
+            }}
+          >
           <Image
             src={
               copied === post?.prompt
@@ -53,6 +59,11 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
       </p>
       <p className="font-inter text-sm blue_gradient cursor-pointer"
         onClick={() => handleTagClick && handleTagClick(post.tag)}
+                    onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                {handleTagClick && handleTagClick(post.tag)}
+              }
+            }}
       >
         {post.tag}
       </p>
@@ -61,12 +72,21 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
           <p
             className='font-inter text-sm orange_gradient cursor-pointer'
             onClick={handleEdit}
+              onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                {handleEdit}
+              }
+            }}
           >
             Edit
           </p>
           <p
             className='font-inter text-sm green_gradient cursor-pointer'
             onClick={handleDelete}
+            if (event.key === "Enter") {
+                {handleDelete}
+              }
+            }}
           >
             Delete
           </p>
